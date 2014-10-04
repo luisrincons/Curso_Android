@@ -25,15 +25,15 @@
 
 var fn = {
     init: function(){
-        //document.addEventListener("deviceready", yourCallbackFunction, false); //phonga
+        //document.addEventListener("deviceready", yourCallbackFunction, false); //phonegap
         document.addEventListener('deviceready',fn.device,false);
         //$('#regSend').click(); //Producir un click
     },
     device: function(){
       var x = false;
-      if(!x)
-        window.location.href =  '#reg';
-      $('#regSend').click(fn.registro);
+          if(!x)
+            window.location.href =  '#reg';
+          $('#regSend').click(fn.registro);
     },
     registro: function(){
         var nombre = $('#regName').val();
@@ -41,12 +41,11 @@ var fn = {
         var tel = $('#regTel').val(); 
         if(nombre != '' && mail != '' && tel != ''){
           //Enviar datos al Servidor.
-            
+            navigator.notification.beep(2);
         }else{
-          alert("Todos los campos son requeridos.");
+          //alert("Todos los campos son requeridos."); 
+          navigator.notification.alert("Todos los campos son requeridos.", null,'Error', 'Aceptar');
         }
-        
-        
     }
 };
 $(fn.init);
