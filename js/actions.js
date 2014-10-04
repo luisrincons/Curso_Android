@@ -40,7 +40,7 @@ var fn = {
         var mail = $('#regMail').val();
         var tel = $('#regTel').val(); 
         if(nombre != '' && mail != '' && tel != ''){
-          //Enviar datos al Servidor.
+          //Enviar datos al Servidor. buildphogap 2.9
             navigator.notification.beep(2);
         }else{
           //alert("Todos los campos son requeridos."); 
