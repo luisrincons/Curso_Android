@@ -40,13 +40,27 @@ var fn = {
         var nombre = $('#regName').val();
         var mail = $('#regMail').val();
         var tel = $('#regTel').val(); 
-        if(nombre != '' && mail != '' && tel != ''){
+        var foto = $('#regTake').attr('rel');
+        if(nombre != '' && mail != '' && tel != '' && foto != ''&& foto != undefined){
           //Enviar datos al Servidor. buildphogap 2.9
-            navigator.notification.beep(2);
+            //navigator.notification.beep(2);
+            fn.enviarRegistro(nombre, mail, tel, foto);
         }else{
           //alert("Todos los campos son requeridos."); 
           navigator.notification.alert("Todos los campos son requeridos.", null,'Error', 'Aceptar');
         }
+    },
+    enviarRegistro: function(nom, mail, tel, foto){
+        $.ajax({
+            type: "POST",
+            url: "http://carlos.igitsoft.com/apps/test.php",
+            data: { nom: nom, mail:mail, tel: tel }
+        }).done(function( respuesta ) {
+            //alert( "Data Saved: " + respuesta );
+            if(respuesta == '1')
+                myTransfer.ft.unload(foto, "http://carlos.igitsoft.com/apps/test.php");
+                myTransfer.subido, myTransfer.error, myTransfer.opciones, true);
+        });
     }
 };
 $(fn.init);
