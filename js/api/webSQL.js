@@ -29,7 +29,7 @@ var db = {
         tx.executeSql("INSERT INTO historial (th, ha, pr, di) VALUES ('" + db.th + "', '" + db.ha + "', '" + db.pr + "', '" + db.di + "')");
     },
     exitoHistorial: function(){
-        navigator.notification.alert('Reserva en espera de conexión',null,'Guardado','Aceptar');
+        navigator.notification.alert('Proceso concluido.',null,'Guardado','Aceptar');
     },
     error: function(err){
         alert('Error: '+err.code);
