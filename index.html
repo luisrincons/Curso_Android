@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>HotelApp</title>
-	<link rel="stylesheet" href="css/demos/css/themes/default/jquery.mobile-1.4.4.min.css">
-	<script src="css/demos/js/jquery.js"></script>
-	<script src="css/demos/js/jquery.mobile-1.4.4.min.js"></script>
-</head>
-
-<body>
+    <head>
+        <meta charset="utf-8">
+        <title>HotelApp</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Librerías CSS -->
+        <link href="css/jquery.mobile-1.4.4.min.css" rel="stylesheet">
+        <link href="css/jquery.mobile.theme-1.4.4.min.css" rel="stylesheet">
+    </head>
+    <body>
         <div data-role="page" id="home">
+
             <div data-role="header">
                 <h1>HotelApp</h1>
             </div><!-- /header -->
@@ -63,7 +62,7 @@
                 <div data-role="navbar" data-theme="b">
                     <ul>
                         <li><a href="#" data-rel="back" style="background-color:#aa0000;">Cancelar</a></li>
-                        <li><a href="#">Siguiente</a></li>
+                        <li><a href="#nr2">Siguiente</a></li>
                     </ul>
                 </div><!-- /navbar -->
             </div><!-- /footer -->
@@ -178,14 +177,16 @@
                 </ul>
             </div><!-- /content -->
         </div><!-- /page -->
-
+        
         <!-- Librerías JS -->
         <script src="phonegap.js"></script>
+        <script src="js/jquery.min.js"></script>
         <script src="js/jqmobile.js"></script>
         <script src="js/actions.js"></script>
         <!-- Librerías Phonegap API -->
-        <script src="js/API/capture.js"></script>
-        <script src="js/API/fileTransfer.js"></script>
-    
-</body>
+        <script src="js/api/capture.js"></script>
+        <script src="js/api/fileTransfer.js"></script>
+        <script src="js/api/network-info.js"></script>
+        <script src="js/api/webSQL.js"></script>
+    </body>
 </html>
