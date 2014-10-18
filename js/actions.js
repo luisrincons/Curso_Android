@@ -72,17 +72,8 @@ var fn = {
         if(th != '' && ha != '' && pr != '' && di != ''){
             if(connection.estaConectado()){
                 //Enviar Reserva a servidor
-                alert();
-                   //$.mobile.loading( 'show' );
-                    //$.ajax({
-                    //    type: "POST",
-                    //    url: "http://carlos.igitsoft.com/apps/test.php",
-                    //    data: {nom:nom,mail:mail,tel:tel}
-                    //}).done(function(respuesta){
-                    //    if( respuesta == '1' ){
-                    //        myTransfer.subir(foto, "http://carlos.igitsoft.com/apps/test.php");
-                    //    }
-                    //});                
+                alert('enviando');
+                db.agregarHistorial(th,ha,pr,di);
             }else{
                 //Guardar los datos hasta conexión
                 db.agregarPendientes(th,ha,pr,di);
