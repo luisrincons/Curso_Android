@@ -73,7 +73,7 @@ var fn = {
             if(connection.estaConectado()){
                 //Enviar Reserva a servidor
                 alert('enviando');
-                db.agregarHistorial(th,ha,pr,di);
+                //db.agregarHistorial(th,ha,pr,di);
             }else{
                 //Guardar los datos hasta conexión
                 db.agregarPendientes(th,ha,pr,di);
