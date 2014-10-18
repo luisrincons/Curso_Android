@@ -1,6 +1,6 @@
 //network-info.js
 var connection = {
-    estaConectado: function8){
+    estaConectado: function(){
         if(navigator.connection.type != connection.NONE){
             return true
         else
