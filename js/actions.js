@@ -14,7 +14,9 @@ var fn = {
         
         $('#nr1 ul[data-role=listview] li').tap(fn.selectTH);
         $('#nr1 div[data-role=navbar] ul li:eq(1)').tap(fn.nrNext);
-        $('#nr2 div[data-role=navbar] ul li:eq(1)').tap(fn.reservar);
+        
+        $('#nr2 div[data-role=navbar] ul li:eq(1)').tap(alert("1"));
+        $('#nr2 div[data-role=navbar] ul li:eq(1)').tap(alert("2")); //fn.reservar
         $('#verHist').tap(db.leerHistorial);
         document.addEventListener("online",fn.sincronizarReserva,false);
     },
