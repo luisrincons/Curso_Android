@@ -18,7 +18,7 @@
             <div role="main" class="ui-content">
                 <ul data-role="listview" data-inset="true">
                     <li><a href="#nr1">Crear Reserva</a></li>
-                    <li><a href="#historial">Ver Historial</a></li>
+                    <li><a href="#historial" id="verHist">Ver Historial</a></li>
                     <li><a href="#priv">Privacidad</a></li>
                     <li><a href="#reg">Reg</a></li>
                     <li><a href="#" id="showStorage">storage</a></li>
@@ -127,11 +127,14 @@
             <div role="main" class="ui-content">
                 <table>
                     <thead>
+                        <tr>
                         <th>Fecha</th>
                         <th>Tido de Habitación</th>
+                        <th>Habitaciones</th>
+                        <th>Días</th>
+                        </tr>
                     </thead>
-                    <tbody>
-                        
+                    <tbody id="ResHistorial">
                     </tbody>
                 </table>
             </div><!-- /content -->

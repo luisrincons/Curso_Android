@@ -1,9 +1,7 @@
 //actions.js
 var fn = {
     init: function(){
-        //document.addEventListener("deviceready", yourCallbackFunction, false); //phonga
         document.addEventListener('deviceready',fn.device,false);
-        //$('#regSend').click(); //Producir un click
     },
     device: function(){
         if(!fn.estaRegistrado)
@@ -17,7 +15,7 @@ var fn = {
         $('#nr1 ul[data-role=listview] li').tap(fn.selectTH);
         $('#nr1 div[data-role=navbar] ul li:eq(1)').tap(fn.nrNext);
         $('#nr2 div[data-role=navbar] ul li:eq(1)').tap(fn.reservar);
-        
+        $('#verHist').tap(db.leerHistorial);
         document.addEventListener("online",fn.sincronizarReserva,false);
     },
     registro: function(){
@@ -27,6 +25,7 @@ var fn = {
         var foto = $('#regTake').attr('rel');
         if(nombre != '' && mail != '' && tel != '' && foto != '' && foto != undefined){
             //Enviar datos al Servidor.
+            alert("Datos para enviar");
             fn.enviarRegistro(nombre, mail, tel, foto);
         }else{
             navigator.notification.alert("Todos los campos son requeridos.",null,'Error','Aceptar');
@@ -34,6 +33,7 @@ var fn = {
     },
     enviarRegistro: function(nom, mail, tel, foto){
         $.mobile.loading( 'show' );
+        alert('a punto de enviar');
         $.ajax({
             type: "POST",
             url: "http://carlos.igitsoft.com/apps/test.php",
@@ -43,6 +43,7 @@ var fn = {
                 myTransfer.subir(foto, "http://carlos.igitsoft.com/apps/test.php");
             }
         });
+        alert('enviado');
     },
     enviarReserva: function(th, ha, pr, di){
         $.mobile.loading( 'show' );

@@ -43,6 +43,23 @@ var db = {
             }
         }
     },
+    //Mi código -----------------------
+    leerHistorial: function(){
+        db.crearDB().transaction(db.selectHistorial,db.error);
+    },    
+    selectHistorial: function(){
+        tx.executeSql("SELECT * FROM historial",[],db.ConsultaHistorial, null);
+    },
+    ConsultaHistorial: function(tx, res){
+        var cantH = res.rows.length;
+        var ContHist = "";
+        if(cantH>0){
+            for (var i=0; i < cantH;  i++){
+                ContHist = "<tr><td>" + res.rows.item(i).th + "</td><td>" + res.rows.item(i).ha + "</td><td>" + res.rows.item(i).pr + "</td><td>" + res.rows.item(i).di + "</td></tr>";
+            }
+        }
+        $("#ResHistorial").html(ContHist);
+    },
     //-------------------HISTORIAL---------------------
     agregarHistorial: function(th,ha,pr,di){
         db.th = th;
