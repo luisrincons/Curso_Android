@@ -17,6 +17,9 @@ var fn = {
         $('#nr1 ul[data-role=listview] li').tap(fn.selectTH);
         $('#nr1 div[data-role=navbar] ul li:eq(1)').tap(fn.nrNext);
         $('#nr2 div[data-role=navbar] ul li:eq(1)').tap(fn.reservar);
+        
+        document.addEventListener("online", fn.sincronizarReserva, false);
+        
     },
     registro: function(){
         var nombre = $('#regName').val();
@@ -93,6 +96,11 @@ var fn = {
         }else{
             alert('Todos los campos son requeridos');
         }
+    },
+    sincronizarReserva(){
+        //Leer la tabla de pendientes
+            //llamar a funcion fn.enviarReserva()
+            db.leerPendientes();
     }
 };
 $(fn.init);

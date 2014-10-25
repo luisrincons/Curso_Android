@@ -19,6 +19,27 @@ var db = {
         $.mobile.loading( 'hide' );
         navigator.notification.alert('Reserva en espera de conexión',null,'Guardado','Aceptar');
     },
+    leerPendientes: function(){
+        db.crearDB().transaction(db.selectPendientes,db.error,null);
+    },
+    selectPendientes: function(tx){
+        tx.executeSql("SELECT * FROM pendientes",[],db.resultadosPendientes,db.error);
+    },
+    resultadosPendientes: function(tx, res){
+        var cant = res.rows.length;
+        if(cant>0){            
+            for(var i=0; i<cant; i++){
+                var th = res.rows.item(i).th;
+                var ha = res.rows.item(i).ha;
+                var pr = res.rows.item(i).pr;
+                var di = res.rows.item(i).di;
+                
+                fn.enviarReserva(th, ha, pr, di);
+                tx.executeSql("DELETE FROM pendientes WHERE id = '" + res.rows.item(i).id + "'");
+            }
+        
+        }
+    },
     //-------------------HISTORIAL---------------------
     agregarHistorial: function(th,ha,pr,di){
         db.th = th;
@@ -35,6 +56,7 @@ var db = {
         $.mobile.loading( 'hide' );
         navigator.notification.alert('Se ha registrado su reserva',null,'Reserva Exitosa','Aceptar');
     },
+    
     error: function(err){
         $.mobile.loading( 'hide' );
         alert('Error: '+err.code);
