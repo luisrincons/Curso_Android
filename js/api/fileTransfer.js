@@ -15,7 +15,7 @@ var myTransfer = {
     subir: function(uri,url){
         myTransfer.opciones = new FileUploadOptions();
         myTransfer.opciones.fileKey = "foto";
-        myTransfer.opciones.fileName = "Luis_Alvaro";
+        myTransfer.opciones.fileName = "Luis Alvaro";
         myTransfer.opciones.mimeType = "image/jpeg";
         myTransfer.opciones.params = {value1: 'Text',value2: 'param'};
         
